@@ -3,11 +3,21 @@
 public class ArrayExamples {
 
   // Changes the input array to be in reversed order
+  // static void reverseInPlace(int[] arr) {
+  //   for(int i = 0; i < arr.length; i += 1) {
+  //     arr[i] = [arr.length - i - 1];
+  //   }
+  // }
+
   static void reverseInPlace(int[] arr) {
-    for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = arr[arr.length - i - 1];
+    int length = arr.length;
+    for (int i = 0; i < arr.length; i++) {
+        int temp = arr[i];
+        temp = arr[length - i - 1];
+        arr[length - i - 1] = temp;
     }
-  }
+}
+
 
   // Returns a *new* array with all the elements of the input array in reversed
   // order
@@ -15,6 +25,7 @@ public class ArrayExamples {
     int[] newArray = new int[arr.length];
     for(int i = 0; i < arr.length; i += 1) {
       arr[i] = newArray[arr.length - i - 1];
+      newArray[i] = arr[i];
     }
     return arr;
   }
